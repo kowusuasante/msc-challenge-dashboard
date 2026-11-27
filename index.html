@@ -71,16 +71,40 @@ footer{margin-top:28px;font-size:12px;color:#ad9fc1;line-height:1.7}.footlinks{d
     </div>
   </section>
   <section class="memberBadge panel" id="memberBadge" aria-label="MSC participant badge creator">
-    <div class="panelHead"><div><div class="sectionEyebrow">SOMETHING TO CELEBRATE</div><h2>I'm part of MSC 💜</h2><p class="sub">Make your own shareable participation badge.</p></div><span class="tag good">Made for every member</span></div>
+    <div class="panelHead"><div><div class="sectionEyebrow">SOMETHING TO CELEBRATE</div><h2>I'm part of MSC 💜</h2><p class="sub">Make your own shareable participation badge. Type a name to see it update live.</p></div><span class="tag good">Made for every member</span></div>
     <div class="badgeBuilder">
       <div class="badgeFields">
         <div class="field"><label for="badgeMember">Your registered club name</label><select class="control" id="badgeMember" disabled><option value="">Loading members…</option></select></div>
-        <div class="field"><label for="badgeNickname">The name your friends know you by <span class="optional">(optional)</span></label><input class="control" id="badgeNickname" type="text" maxlength="32" placeholder="e.g. Kobby" autocomplete="nickname" disabled></div>
-        <p class="badgeHint">Leave the nickname blank to use your registered name. It's used only to create your badge in this browser — nothing is saved to Google Sheets.</p>
+        <div class="field"><label for="badgeNickname">The name your friends know you by <span class="optional">(optional)</span></label><input class="control" id="badgeNickname" type="text" maxlength="32" placeholder="e.g. Kobby" autocomplete="nickname"></div>
+        <p class="badgeHint">Type your preferred name to personalise the badge instantly, or select your registered name above. Nothing is saved to Google Sheets.</p>
         <div class="badgeActions"><button class="btn primary" type="button" id="downloadBadge" disabled>↓ Save my badge (PNG)</button><button class="btn" type="button" id="shareBadge" disabled>Share badge</button></div>
-        <p class="badgeStatus" id="badgeStatus" aria-live="polite">Choose your name to personalise the badge.</p>
+        <p class="badgeStatus" id="badgeStatus" aria-live="polite">Type your name or select a registered member to personalise the badge.</p>
       </div>
-      <div class="badgePreview"><canvas id="badgeCanvas" width="1254" height="1254" role="img" aria-label="Preview of personalised MSC 50-Day Challenge participant badge">Your browser does not support the badge preview.</canvas><p>Share it on WhatsApp, Instagram or wherever your club shows up.</p></div>
+      <div class="badgePreview"><svg id="badgeArtwork" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1254 1254" width="1254" height="1254" role="img" aria-label="Personalised MSC badge" style="display:block;width:100%;height:auto;border-radius:14px" font-family="Arial, Helvetica, sans-serif">
+<defs>
+ <radialGradient id="mscBg"><stop stop-color="#2d1248"/><stop offset=".62" stop-color="#220b37"/><stop offset="1" stop-color="#12091f"/></radialGradient>
+ <linearGradient id="mscShield" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#27113e"/><stop offset=".45" stop-color="#210b35"/><stop offset="1" stop-color="#2b1046"/></linearGradient>
+ <linearGradient id="mscGrip"><stop stop-color="#47276f"/><stop offset=".38" stop-color="#a577d1"/><stop offset=".7" stop-color="#7750a4"/><stop offset="1" stop-color="#47276f"/></linearGradient>
+ <linearGradient id="mscCap"><stop stop-color="#8453b4"/><stop offset=".5" stop-color="#d2a7f4"/><stop offset="1" stop-color="#8d63b7"/></linearGradient>
+ <path id="mscShieldShape" d="M 627 51 C 580 51 546 66 495 85 L 249 181 Q 154 218 154 302 L 154 686 C 154 876 345 1048 558 1170 Q 627 1211 696 1170 C 909 1048 1100 876 1100 686 L 1100 302 Q 1100 218 1005 181 L 759 85 C 708 66 674 51 627 51 Z"/>
+ <path id="mscCable" d="M 264 698 C 249 637 207 605 208 539 C 209 398 405 276 627 276 C 850 276 1045 398 1046 539 C 1047 605 1005 637 990 698"/>
+ <g id="mscHandle"><rect x="-22" width="44" height="172" rx="19" fill="url(#mscGrip)" stroke="#9c73c1" stroke-width="1.5"/><rect x="-22" width="44" height="19" rx="7" fill="url(#mscCap)"/><rect x="-22" y="151" width="44" height="21" rx="7" fill="url(#mscCap)"/><text transform="translate(0 88) rotate(90)" text-anchor="middle" dominant-baseline="central" font-size="22" font-weight="700" fill="#f8f5fc">MSC</text></g>
+</defs>
+<rect width="1254" height="1254" fill="url(#mscBg)"/>
+<use href="#mscShieldShape" fill="url(#mscShield)" stroke="#9c63db" stroke-width="20" stroke-opacity=".28"/><use href="#mscShieldShape" fill="none" stroke="#9c63db" stroke-width="15"/><use href="#mscShieldShape" fill="none" stroke="#bd8ef0" stroke-width="9"/><use href="#mscShieldShape" fill="none" stroke="#e0c1ff" stroke-width="2.5"/>
+<g transform="translate(511 123) scale(.96)" fill="#f8f5fc" stroke-linejoin="round"><path d="M0 0 H24 L57 39 L90 0 H114 V87 H91 V34 L57 73 L23 34 V87 H0 Z"/><path stroke="#28113e" stroke-width="4" paint-order="stroke" d="M153 10 Q136 -4 117 0 Q86 4 86 26 Q86 45 114 51 L132 55 Q145 58 145 66 Q145 77 129 77 Q112 77 99 65 L84 80 Q103 93 130 93 Q169 93 169 65 Q169 43 140 37 L122 33 Q110 30 110 24 Q110 15 124 15 Q139 15 150 25 Z"/><path stroke="#28113e" stroke-width="4" paint-order="stroke" d="M239 15 Q222 -2 199 -2 C169 -2 148 18 148 45 C148 72 170 92 199 92 Q223 92 240 75 L224 60 Q214 71 199 71 C183 71 171 60 171 45 C171 30 183 19 199 19 Q213 19 224 30 Z"/></g>
+<text x="627" y="251" text-anchor="middle" font-size="29" font-weight="700" letter-spacing="5.3" fill="#f8f5fc">MUSCLY SKIPPING CLUB</text><path d="M273 241 H348 M906 241 H981" stroke="#f8f5fc" stroke-width="2"/>
+<use href="#mscCable" fill="none" stroke="#8654bf" stroke-width="6" stroke-linecap="round"/><use href="#mscCable" fill="none" stroke="#d5b0f7" stroke-width="3.1" stroke-linecap="round"/>
+<path d="M202 420 Q208 394 232 376 M214 437 Q223 412 248 393 M1024 413 Q1048 431 1055 458 M1010 427 Q1032 444 1040 473" fill="none" stroke="#8d64b4" stroke-width="2.5" stroke-linecap="round"/>
+<g fill="#f8f5fc" text-anchor="middle" font-weight="900"><text x="627" y="468" font-size="151" textLength="560" lengthAdjust="spacingAndGlyphs">50-DAY</text><text x="627" y="581" font-size="131" textLength="755" lengthAdjust="spacingAndGlyphs">CHALLENGE</text></g>
+<text x="627" y="645" text-anchor="middle" font-size="35" font-weight="700" letter-spacing="4" fill="#f2d16d">05 NOV – 24 DEC 2026</text>
+<use href="#mscHandle" transform="translate(264 698) rotate(-9.17)"/><use href="#mscHandle" transform="translate(990 698) rotate(9.17)"/>
+<text x="627" y="732" text-anchor="middle" font-size="41" font-weight="700" font-style="italic" fill="#a0e4cc">Officially Roped In</text>
+<text id="badgeLiveName" x="627" y="814" text-anchor="middle" font-size="68" font-weight="900" fill="#f8f5fc">YOUR NAME HERE</text>
+<path d="M470 860 H784" stroke="#d0a7ed" stroke-width="3"/>
+<text x="627" y="935" text-anchor="middle" font-size="32" font-weight="700" font-style="italic" fill="#f8f5fc">One Rope. One Community. One Goal.</text>
+<text x="627" y="1000" text-anchor="middle" font-size="42" font-weight="900" font-style="italic" fill="#a0e4cc">EVERY SKIP COUNTS.</text>
+</svg><p>Share it on WhatsApp, Instagram or wherever your club shows up.</p></div>
     </div>
   </section>
   <div class="tips"><div class="tipsTitle">🪢 How to take part</div><div class="tipsBody">Set your daily and weekly targets for every challenge week you report, including previous weeks. <a href="#reportingGuide">See how to report or update your targets.</a></div></div>
@@ -123,7 +147,7 @@ function challengeInfo(){const today=ghToday(), start=WEEKS[0].from, end=WEEKS[7
 function initPeriod(){period=currentWeek();const options=WEEKS.map((w,i)=>`<option value="${i+1}">Week ${i+1} · ${escapeHtml(w.label)}</option>`).join('');$('period').innerHTML=options+'<option value="all">All reported weeks</option>';$('period').value=period}
 function setConnection(status,msg){$('statusDot').className='dot'+(status==='ok'?' ok':status==='error'?' off':'');$('statusText').textContent=msg}
 function validFeed(x){return x&&x.schema===2&&Array.isArray(x.roster)&&Array.isArray(x.daily)&&Array.isArray(x.weekly)}
-window.mscDashboardReceive=function(payload){if(!validFeed(payload)){setConnection('error','Data feed returned an unexpected format');return}feed=payload;receivedInRequest=true;isFetching=false;const link=$('reportLink');if(String(payload.formUrl||'').startsWith('https://docs.google.com/forms/')){link.href=payload.formUrl;link.classList.remove('hide')}setConnection('ok','Live · participant submissions');const d=new Date(payload.updatedAt);$('lastUpdated').textContent=isNaN(d)?'':('Updated '+d.toLocaleString(undefined,{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'}));render();initBadgeRoster();};
+window.mscDashboardReceive=function(payload){if(!validFeed(payload)){setConnection('error','Data feed returned an unexpected format');return}feed=payload;receivedInRequest=true;isFetching=false;const link=$('reportLink');if(String(payload.formUrl||'').startsWith('https://docs.google.com/forms/')){link.href=payload.formUrl;link.classList.remove('hide')}setConnection('ok','Live · participant submissions');const d=new Date(payload.updatedAt);$('lastUpdated').textContent=isNaN(d)?'':('Updated '+d.toLocaleString(undefined,{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'}));initBadgeRoster();render();};
 function loadFeed(){if(isFetching)return;if(!FEED_URL.startsWith('https://script.google.com/macros/s/')||!FEED_URL.includes('/exec')){setConnection('error','Live feed not connected yet');$('leaderRows').innerHTML='<div class="norecords">Waiting for the public, read-only data feed. No results are displayed until connected.</div>';return}isFetching=true;receivedInRequest=false;setConnection('pending',feed?'Refreshing live results…':'Connecting to live results…');const tag=document.createElement('script');tag.src=FEED_URL+(FEED_URL.includes('?')?'&':'?')+'v='+Date.now();tag.async=true;tag.onerror=()=>{isFetching=false;setConnection('error',feed?'Refresh failed · showing last loaded values':'Could not load live results');tag.remove()};tag.onload=()=>{isFetching=false;if(!receivedInRequest)setConnection('error',feed?'Refresh failed · showing last loaded values':'Feed returned no usable data');tag.remove()};document.head.appendChild(tag);setTimeout(()=>{if(isFetching){isFetching=false;setConnection('error',feed?'Refresh delayed · showing last loaded values':'Live feed did not respond')}},16000)}
 function model(){if(!feed)return [];const m=new Map();(feed.roster||[]).forEach(p=>{const id=String(p.id||'');if(!/^MSC-\d{3}$/.test(id))return;m.set(id,{id,name:String(p.name||id),targets:Array.isArray(p.targets)?p.targets:[],dailyTargets:Array.isArray(p.dailyTargets)?p.dailyTargets:[],days:[],issues:new Set()})});(feed.daily||[]).forEach(r=>{const p=m.get(r.id);if(!p||!/^\d{4}-\d{2}-\d{2}$/.test(String(r.date))||!Number.isInteger(Number(r.week))||Number(r.week)<1||Number(r.week)>8)return;const skips=n(r.skips);if(skips===null||skips<0)return;p.days.push({date:r.date,week:Number(r.week),skips,activity:String(r.activity||'')})});(feed.targetIssues||[]).forEach(x=>{const p=m.get(x.id);if(p&&Number(x.week)>=1&&Number(x.week)<=8)p.issues.add(Number(x.week))});return [...m.values()].sort((a,b)=>a.name.localeCompare(b.name))}
 function weekMetric(p,w){const days=p.days.filter(d=>d.week===w);const skips=days.reduce((s,d)=>s+d.skips,0);const target=positive(p.targets[w-1]);return {week:w,days:days.length,skips,target,hasReport:days.length>0,issue:p.issues.has(w),pct:days.length&&target?100*skips/target:null}}
@@ -188,49 +212,39 @@ function renderDailyChart(data){
 }
 // Personalised participation art. The optional nickname never leaves this browser.
 let badgeRoster=[];
-function initBadgeRoster(){const select=$('badgeMember');const active=select.value;badgeRoster=model().map(p=>({id:p.id,name:p.name}));select.innerHTML='<option value="">Choose your name / MSC ID</option>'+badgeRoster.map(p=>`<option value="${escapeHtml(p.id)}">${escapeHtml(p.name)} · ${escapeHtml(p.id)}</option>`).join('');if(badgeRoster.some(p=>p.id===active))select.value=active;select.disabled=!badgeRoster.length;$('badgeNickname').disabled=!badgeRoster.length;drawBadge()}
-function badgeName(){const member=badgeRoster.find(p=>p.id===$('badgeMember').value);return member?($('badgeNickname').value.trim()||member.name):'YOUR NAME HERE'}
-// Live vector badge renderer. No image assets, name patches, or external fonts.
-function drawBadge(){
- const canvas=$('badgeCanvas'),ctx=canvas.getContext('2d');if(!ctx)return;
- const member=badgeRoster.find(p=>p.id===$('badgeMember').value),name=badgeName();
- const W=1254,H=1254;ctx.setTransform(canvas.width/W,0,0,canvas.height/H,0,0);
- ctx.clearRect(0,0,W,H);ctx.globalAlpha=1;ctx.shadowBlur=0;
- const bg=ctx.createRadialGradient(625,500,80,625,600,940);bg.addColorStop(0,'#2d1248');bg.addColorStop(.62,'#220b37');bg.addColorStop(1,'#12091f');ctx.fillStyle=bg;ctx.fillRect(0,0,W,H);
- const shield=new Path2D('M 627 51 C 580 51 546 66 495 85 L 249 181 Q 154 218 154 302 L 154 686 C 154 876 345 1048 558 1170 Q 627 1211 696 1170 C 909 1048 1100 876 1100 686 L 1100 302 Q 1100 218 1005 181 L 759 85 C 708 66 674 51 627 51 Z');
- const inner=ctx.createLinearGradient(150,90,1100,1160);inner.addColorStop(0,'#27113e');inner.addColorStop(.45,'#210b35');inner.addColorStop(1,'#2b1046');ctx.fillStyle=inner;ctx.fill(shield);
- ctx.save();ctx.lineJoin='round';ctx.strokeStyle='#9c63db';ctx.lineWidth=15;ctx.shadowColor='#9c63db';ctx.shadowBlur=16;ctx.stroke(shield);ctx.shadowBlur=0;ctx.strokeStyle='#bd8ef0';ctx.lineWidth=9;ctx.stroke(shield);ctx.strokeStyle='#e0c1ff';ctx.lineWidth=2.5;ctx.stroke(shield);ctx.restore();
- const white='#f8f5fc',lav='#d0a7ed',mint='#a0e4cc',gold='#f2d16d';
- function line(x1,y,x2,color=lav,width=3){ctx.strokeStyle=color;ctx.lineWidth=width;ctx.beginPath();ctx.moveTo(x1,y);ctx.lineTo(x2,y);ctx.stroke()}
- function text(s,y,size,color=white,max=Infinity,opts={}){ctx.save();ctx.font=`${opts.italic?'italic ':''}${opts.weight||700} ${size}px Arial, Helvetica, sans-serif`;ctx.textBaseline='alphabetic';ctx.textAlign='center';ctx.fillStyle=color;const measured=ctx.measureText(s).width;const scale=opts.width?opts.width/measured:Math.min(1,max/measured);ctx.translate(627,y);ctx.scale(scale,1);ctx.fillText(s,0,0);ctx.restore()}
- function spaced(s,y,size,color,space){ctx.save();ctx.font=`700 ${size}px Arial, Helvetica, sans-serif`;ctx.fillStyle=color;ctx.textAlign='left';ctx.textBaseline='alphabetic';const chars=Array.from(s),width=chars.reduce((a,c)=>a+ctx.measureText(c).width,0)+space*(chars.length-1);let x=627-width/2;for(const c of chars){ctx.fillText(c,x,y);x+=ctx.measureText(c).width+space}ctx.restore()}
- // Compact interlocking MSC wordmark, drawn as three clean, fixed vector letterforms.
- ctx.save();ctx.translate(511,123);ctx.scale(.96,.96);ctx.fillStyle=white;
- ctx.fill(new Path2D('M0 0 H24 L57 39 L90 0 H114 V87 H91 V34 L57 73 L23 34 V87 H0 Z'));
- const S=new Path2D('M153 10 Q136 -4 117 0 Q86 4 86 26 Q86 45 114 51 L132 55 Q145 58 145 66 Q145 77 129 77 Q112 77 99 65 L84 80 Q103 93 130 93 Q169 93 169 65 Q169 43 140 37 L122 33 Q110 30 110 24 Q110 15 124 15 Q139 15 150 25 Z');
- ctx.lineJoin='round';ctx.strokeStyle='#28113e';ctx.lineWidth=4;ctx.stroke(S);ctx.fill(S);
- const C=new Path2D('M239 15 Q222 -2 199 -2 C169 -2 148 18 148 45 C148 72 170 92 199 92 Q223 92 240 75 L224 60 Q214 71 199 71 C183 71 171 60 171 45 C171 30 183 19 199 19 Q213 19 224 30 Z');ctx.stroke(C);ctx.fill(C);ctx.restore();
- spaced('MUSCLY SKIPPING CLUB',251,29,white,5.3);line(273,241,348,white,2);line(906,241,981,white,2);
- // Slim speed-rope cable follows the high arc of the approved shield reference.
- const cable=new Path2D('M 264 698 C 249 637 207 605 208 539 C 209 398 405 276 627 276 C 850 276 1045 398 1046 539 C 1047 605 1005 637 990 698');
- ctx.save();ctx.lineCap='round';ctx.strokeStyle='#8654bf';ctx.lineWidth=6;ctx.stroke(cable);ctx.strokeStyle='#d5b0f7';ctx.lineWidth=3.1;ctx.stroke(cable);ctx.restore();
- // Small motion accents remain within the outer shield.
- ctx.save();ctx.lineCap='round';ctx.strokeStyle='#8d64b4';ctx.lineWidth=2.5;for(const d of ['M202 420 Q208 394 232 376','M214 437 Q223 412 248 393','M1024 413 Q1048 431 1055 458','M1010 427 Q1032 444 1040 473'])ctx.stroke(new Path2D(d));ctx.restore();
- // Text is rendered after the cable so the rope naturally runs behind the headline.
- text('50-DAY',468,151,white,560,{width:560,weight:900});text('CHALLENGE',581,131,white,755,{width:755,weight:900});
- spaced('05 NOV – 24 DEC 2026',645,35,gold,4);
- function handle(x,y,angle){ctx.save();ctx.translate(x,y);ctx.rotate(angle);const grip=ctx.createLinearGradient(-22,0,22,0);grip.addColorStop(0,'#47276f');grip.addColorStop(.38,'#a577d1');grip.addColorStop(.7,'#7750a4');grip.addColorStop(1,'#47276f');ctx.fillStyle=grip;ctx.beginPath();ctx.roundRect(-22,0,44,172,19);ctx.fill();ctx.strokeStyle='#9c73c1';ctx.lineWidth=1.5;ctx.stroke();const cap=ctx.createLinearGradient(-22,0,22,0);cap.addColorStop(0,'#8453b4');cap.addColorStop(.5,'#d2a7f4');cap.addColorStop(1,'#8d63b7');ctx.fillStyle=cap;ctx.beginPath();ctx.roundRect(-22,0,44,19,7);ctx.fill();ctx.beginPath();ctx.roundRect(-22,151,44,21,7);ctx.fill();ctx.save();ctx.translate(0,88);ctx.rotate(Math.PI/2);ctx.fillStyle=white;ctx.font='700 22px Arial, sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText('MSC',0,0);ctx.restore();ctx.restore()}
- handle(264,698,-.16);handle(990,698,.16);
- text('Officially Roped In',732,41,mint,470,{italic:true});
- const display=name.toLocaleUpperCase();ctx.font='900 68px Arial, Helvetica, sans-serif';let size=68;while(size>24&&ctx.measureText(display).width>576){size--;ctx.font=`900 ${size}px Arial, Helvetica, sans-serif`}text(display,814,size,white,576,{weight:900});
- line(470,860,784,lav,3);text('One Rope. One Community. One Goal.',935,32,white,620,{italic:true});text('EVERY SKIP COUNTS.',1000,42,mint,510,{italic:true,weight:900});
- $('downloadBadge').disabled=!member;$('shareBadge').disabled=!member;
- $('badgeStatus').textContent=member?`Ready for ${name}. Save or share your participation badge.`:'Choose your registered name to create a badge.';
+function initBadgeRoster(){
+ const select=$('badgeMember'),active=select.value;
+ badgeRoster=model().map(p=>({id:p.id,name:p.name}));
+ select.innerHTML='<option value="">Choose your name / MSC ID</option>'+badgeRoster.map(p=>`<option value="${escapeHtml(p.id)}">${escapeHtml(p.name)} · ${escapeHtml(p.id)}</option>`).join('');
+ if(badgeRoster.some(p=>p.id===active))select.value=active;
+ select.disabled=!badgeRoster.length;drawBadge();
 }
-function badgeBlob(){return new Promise(resolve=>$('badgeCanvas').toBlob(resolve,'image/png'))}
-async function downloadBadge(){const member=$('badgeMember').value;if(!member)return;const blob=await badgeBlob();if(!blob){$('badgeStatus').textContent='Could not save the badge. Please try again.';return}const url=URL.createObjectURL(blob);const anchor=document.createElement('a');anchor.href=url;anchor.download=`MSC-50-Day-Participant-${member}.png`;document.body.appendChild(anchor);anchor.click();anchor.remove();setTimeout(()=>URL.revokeObjectURL(url),10000);$('badgeStatus').textContent='Your badge is saved and ready to post!'}
-async function shareBadge(){if(!$('badgeMember').value)return;const blob=await badgeBlob();if(!blob){$('badgeStatus').textContent='Could not prepare your badge.';return}const file=new File([blob],`MSC-50-Day-${$('badgeMember').value}.png`,{type:'image/png'});try{if(navigator.share&&navigator.canShare&&navigator.canShare({files:[file]})){await navigator.share({files:[file],title:'Muscly Skipping Club · 50-Day Challenge',text:`I'm taking part in the MSC 50-Day Challenge! 💜`});$('badgeStatus').textContent='Badge shared.';return}}catch(e){if(e.name==='AbortError')return}await downloadBadge();$('badgeStatus').textContent='Badge saved as PNG. Share the image in your favourite app.'}
-function setupBadge(){drawBadge();$('badgeMember').addEventListener('change',()=>{$('badgeNickname').value='';drawBadge()});$('badgeNickname').addEventListener('input',drawBadge);$('downloadBadge').addEventListener('click',downloadBadge);$('shareBadge').addEventListener('click',shareBadge)}
+function badgeName(){return $('badgeNickname').value.trim() || (badgeRoster.find(p=>p.id===$('badgeMember').value)||{}).name || '';}
+function drawBadge(){
+ const name=badgeName(),node=$('badgeLiveName');
+ node.textContent=(name||'YOUR NAME HERE').toLocaleUpperCase();
+ node.setAttribute('font-size','68');node.removeAttribute('textLength');node.removeAttribute('lengthAdjust');
+ // Live SVG text changes synchronously, including before the data feed loads.
+ try{let width=node.getComputedTextLength();if(width>576){node.setAttribute('font-size',String(Math.max(24,Math.floor(68*576/width))));if(node.getComputedTextLength()>576){node.setAttribute('textLength','576');node.setAttribute('lengthAdjust','spacingAndGlyphs')}}}catch(e){if(node.textContent.length>14){node.setAttribute('textLength','576');node.setAttribute('lengthAdjust','spacingAndGlyphs')}}
+ $('downloadBadge').disabled=!name;$('shareBadge').disabled=!name;
+ $('badgeStatus').textContent=name?`Ready for ${name}. Save or share your participation badge.`:'Type your name or select a registered member to personalise the badge.';
+}
+function badgeBlob(){
+ drawBadge();
+ // Export exactly the same live SVG displayed in the preview, not a separate template.
+ const svg=$('badgeArtwork').cloneNode(true);svg.removeAttribute('style');svg.setAttribute('width','1254');svg.setAttribute('height','1254');
+ const source=new XMLSerializer().serializeToString(svg),url=URL.createObjectURL(new Blob([source],{type:'image/svg+xml;charset=utf-8'}));
+ return new Promise((resolve,reject)=>{const img=new Image();img.onload=()=>{try{const c=document.createElement('canvas');c.width=1254;c.height=1254;c.getContext('2d').drawImage(img,0,0);c.toBlob(blob=>blob?resolve(blob):reject(new Error('PNG export unavailable')),'image/png')}catch(e){reject(e)}finally{URL.revokeObjectURL(url)}};img.onerror=()=>{URL.revokeObjectURL(url);reject(new Error('Unable to render badge'))};img.src=url;});
+}
+function badgeFilename(){return 'MSC-50-Day-'+(badgeName().replace(/[^\p{L}\p{N}]+/gu,'-').replace(/^-|-$/g,'')||'Participant')+'.png'}
+function saveBadgeBlob(blob){const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=badgeFilename();document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),60000);$('badgeStatus').textContent='Your personalised PNG is ready to save or share.';}
+async function downloadBadge(){if(!badgeName())return;try{saveBadgeBlob(await badgeBlob())}catch(e){$('badgeStatus').textContent='Could not export the PNG. Please try again or use a different browser.';console.error(e)}}
+async function shareBadge(){if(!badgeName())return;try{const blob=await badgeBlob(),file=new File([blob],badgeFilename(),{type:'image/png'});if(navigator.share&&navigator.canShare&&navigator.canShare({files:[file]})){try{await navigator.share({files:[file],title:'Muscly Skipping Club · 50-Day Challenge'});$('badgeStatus').textContent='Badge shared.';return}catch(e){if(e.name==='AbortError')return}}saveBadgeBlob(blob)}catch(e){$('badgeStatus').textContent='Could not export the badge. Please try saving it instead.';console.error(e)}}
+function setupBadge(){
+ $('badgeMember').addEventListener('change',()=>{$('badgeNickname').value='';drawBadge()});
+ for(const event of ['input','change','compositionend'])$('badgeNickname').addEventListener(event,drawBadge);
+ $('downloadBadge').addEventListener('click',downloadBadge);$('shareBadge').addEventListener('click',shareBadge);drawBadge();
+}
 // Each ranking is calculated across ALL registered members before filters are applied.
 // Members without a submitted goal can rank by skips but never by target achievement.
 let liveRankMaps={achievement:new Map(),skips:new Map()};
@@ -278,7 +292,7 @@ function weekCard(p,w){const x=weekMetric(p,w);const range=WEEKS[w-1];const date
 function renderProfile(p){const w=period==='all'?WEEKS.map((_,i)=>i+1):[Number(period)];const m=p.m;const cards=w.map(i=>weekCard(p,i)).join('');const detail=$('profile');detail.innerHTML=`<div class="profileHead"><div><div class="eyebrow">PARTICIPANT PROGRESS</div><h2>${escapeHtml(p.name)}</h2><p class="sub">${escapeHtml(p.id)} · Only Google Form submissions</p></div><div class="profileActions"><button class="close profileBadgeBtn" id="profileBadge" type="button">Make my badge</button><button class="close" id="closeProfile" type="button">Close</button></div></div><div class="profileInfo"><div class="miniStat"><div class="label">Official skips</div><strong>${m.hasReport?fmt(m.skips):'—'}</strong></div><div class="miniStat"><div class="label">Weekly target${period==='all'?'s':''}</div><strong>${fmt(m.showTarget)}</strong></div><div class="miniStat"><div class="label">Achievement</div><strong>${percent(m.achievement)}</strong></div><div class="miniStat"><div class="label">Reported days</div><strong>${fmt(m.days)}</strong></div><div class="miniStat"><div class="label">Target achievement rank</div><strong>${liveRankMaps.achievement.has(p.id)?'#'+liveRankMaps.achievement.get(p.id):'—'}</strong></div><div class="miniStat"><div class="label">Total skips rank</div><strong>${liveRankMaps.skips.has(p.id)?'#'+liveRankMaps.skips.get(p.id):'—'}</strong></div></div><div class="weeksGrid">${cards}</div>`;detail.classList.remove('hide');$('closeProfile').onclick=closeProfile;$('profileBadge').onclick=()=>{const select=$('badgeMember');select.value=p.id;$('badgeNickname').value='';drawBadge();$('memberBadge').scrollIntoView({block:'start',behavior:'smooth'})}}
 function showProfile(id){selectedId=id;const p=model().map(p=>({...p,m:metric(p)})).find(x=>x.id===id);if(p){renderProfile(p);$('profile').scrollIntoView({block:'start',behavior:'smooth'})}}
 function closeProfile(){selectedId=null;$('profile').classList.add('hide');$('profile').innerHTML=''}
-function init(){initPeriod();challengeInfo();$('period').addEventListener('change',e=>{period=e.target.value;closeProfile();render()});$('search').addEventListener('input',render);$('sort').addEventListener('change',render);$('filter').addEventListener('change',render);$('refreshBtn').addEventListener('click',loadFeed);setupBadge();loadFeed();setInterval(()=>{if(!document.hidden)loadFeed()},120000)}
+function init(){setupBadge();initPeriod();challengeInfo();$('period').addEventListener('change',e=>{period=e.target.value;closeProfile();render()});$('search').addEventListener('input',render);$('sort').addEventListener('change',render);$('filter').addEventListener('change',render);$('refreshBtn').addEventListener('click',loadFeed);loadFeed();setInterval(()=>{if(!document.hidden)loadFeed()},120000)}
 init();
 </script>
 </body></html>
